@@ -27,8 +27,15 @@ export class HomePage {
     //       console.error(error);
     //     }
     // );
+    // -----------------
 
-    this.http.getPokemonList2();
+    this.http.getPokemonList2()
+        .then(res => {
+            //res.data = JSON.parse(res.data);
+            //this.pokemonList = res.data.results;
+            this.pokemonList = JSON.parse(res.data).results;
+            console.log(this.pokemonList);
+        });
   }
 
   goToDescription(url: string) {

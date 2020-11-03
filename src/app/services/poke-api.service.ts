@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {HTTP} from '@ionic-native/http/ngx';
+import {PokeList} from '../interfaces/poke-list';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,6 @@ import {HTTP} from '@ionic-native/http/ngx';
 export class PokeApiService {
   pokedexUrl = 'https://pokeapi.co/api/v2/pokemon?limit=21';
 
-  aux: any;
   constructor(public http2: HTTP) {}
 
   // getPokemonList(){
@@ -19,24 +19,14 @@ export class PokeApiService {
   // }
 
   getPokemonList2(){
-    // this.http2.get(this.pokedexUrl, {}, {}).then(
-    //     (res: any) => {
-    //       this.aux = res;
-    //       return this.aux;
-    //     },
-    //     (error) => {
-    //       console.log(error);
-    //     }
-    // );
-      this.http2.get(this.pokedexUrl, {}, {})
-          .then(data => {
-                this.aux = data.data;
-          })
-          .catch(error => {
-              // console.log(error.status);
-              // console.log(error.error); // Mensaje de error en una cadena.
-              // console.log(error.headers);
-          });
-      return this.aux;
+      // this.http2.get(this.pokedexUrl, {}, {})
+      //     .then(data => {
+      //         //console.log(data.status);
+      //         //console.log(data.data); // Información recibida desde el server.
+      //         return data.data;
+      //         //console.log(data.headers);
+      //     });
+      return this.http2.get(this.pokedexUrl, {}, {});
+
   }
 }

@@ -10,9 +10,11 @@ import {Pokemon} from '../interfaces/pokemon';
 export class DescriptionPage implements OnInit {
   pokemonDes: Pokemon;
   constructor(private route: Router) {
-    //const navigation = this.route.getCurrentNavigation();
-    //const state = (this.route.getCurrentNavigation().extras.state as {info: Pokemon});
-    //this.pokemonDes = state.info;
+    // const navigation = this.route.getCurrentNavigation();
+    // const state = (this.route.getCurrentNavigation().extras.state as {info: Pokemon});
+    // this.pokemonDes = state.info;
+
+
     this.pokemonDes = (this.route.getCurrentNavigation().extras.state as {info: Pokemon}).info;
     console.log(this.pokemonDes);
   }
