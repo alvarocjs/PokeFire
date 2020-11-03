@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PokeApiService } from './services/poke-api.service';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

@@ -12,7 +12,5 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="nPoke" *ngFor="let nPoke of pokemonList">
-    <ion-button (click)="goToDescription(nPoke.url)">{{nPoke.name}}</ion-button>
-  </div>
+  <app-list [array]="pokemonList" (dUrl)="goToDescription($event)"></app-list>
 </ion-content>

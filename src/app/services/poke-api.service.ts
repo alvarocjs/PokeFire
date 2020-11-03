@@ -6,13 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PokeApiService {
   pokedexUrl = 'https://pokeapi.co/api/v2/pokemon?limit=21';
-  genericUrlPokemon = 'https://pokeapi.co/api/v2/';
   constructor(public http: HttpClient) {}
 
   getPokemonList(){
     return this.http.get(this.pokedexUrl).toPromise();
   }
   getPokemonDescription(urlPoke: string){
-    return this.http.get(this.genericUrlPokemon + urlPoke).toPromise();
+    return this.http.get(urlPoke).toPromise();
   }
 }

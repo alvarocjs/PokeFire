@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {PokeApiService} from '../services/poke-api.service';
 import {PokeList} from '../interfaces/poke-list';
 import {Pokemon} from '../interfaces/pokemon';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,9 @@ import {Pokemon} from '../interfaces/pokemon';
 export class HomePage {
 
   pokemonList: PokeList;
+  pokemon: Pokemon;
     // SIN TERMINAR
-  constructor(private http: PokeApiService) {
+  constructor(private http: PokeApiService, private router: Router) {
     this.getListFromService();
   }
 
@@ -20,7 +22,6 @@ export class HomePage {
     this.http.getPokemonList().then(
         (res: PokeList) => {
           this.pokemonList = res.results;
-          console.log(this.pokemonList);
         },
         (error) => {
           console.error(error);
@@ -31,8 +32,8 @@ export class HomePage {
     goToDescription(url: string) {
         this.http.getPokemonDescription(url).then(
             (res: Pokemon) => {
-                this.pokemonList = res.results;
-                console.log(this.pokemonList);
+                this.pokemon = res;
+                this.router.navigate(['/description'], {state: {info: this.pokemon}});
             },
             (error) => {
                 console.error(error);
