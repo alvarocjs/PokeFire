@@ -19,25 +19,27 @@ export class HomePage {
   }
 
   getListFromService(){
-    this.http.getPokemonList().then(
-        (res: PokeList) => {
-          this.pokemonList = res.results;
-        },
-        (error) => {
-          console.error(error);
-        }
-    );
+    // this.http.getPokemonList().then(
+    //     (res: PokeList) => {
+    //       this.pokemonList = res.results;
+    //     },
+    //     (error) => {
+    //       console.error(error);
+    //     }
+    // );
+
+    this.http.getPokemonList2();
   }
 
-    goToDescription(url: string) {
-        this.http.getPokemonDescription(url).then(
-            (res: Pokemon) => {
-                this.pokemon = res;
-                this.router.navigate(['/description'], {state: {info: this.pokemon}});
-            },
-            (error) => {
-                console.error(error);
-            }
-        );
-    }
+  goToDescription(url: string) {
+        // this.http.getPokemonDescription(url).then(
+        //     (res: Pokemon) => {
+        //         this.pokemon = res;
+        //         this.router.navigate(['/description'], {state: {info: this.pokemon}});
+        //     },
+        //     (error) => {
+        //         console.error(error);
+        //     }
+        // );
+  }
 }

@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { PokeApiService } from './services/poke-api.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import {HTTP} from '@ionic-native/http/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PokeApiService
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PokeApiService, HTTP
   ],
   bootstrap: [AppComponent]
 })
