@@ -7,15 +7,14 @@ import {PokeList} from '../../interfaces/poke-list';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+
   @Input()
   array: PokeList;
 
   @Output()
   dUrl = new EventEmitter<string>();
 
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit() {}
 
