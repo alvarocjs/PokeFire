@@ -29,4 +29,7 @@ export class PokeApiService {
       return this.http2.get(this.pokedexUrl, {}, {});
 
   }
+  getPokemonDescription2(urlPoke: string){
+    return this.http2.get(urlPoke, {}, {});
+  }
 }

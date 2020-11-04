@@ -34,7 +34,7 @@ export class HomePage {
             //res.data = JSON.parse(res.data);
             //this.pokemonList = res.data.results;
             this.pokemonList = JSON.parse(res.data).results;
-            console.log(this.pokemonList);
+            //console.log(this.pokemonList);
         });
   }
 
@@ -48,5 +48,11 @@ export class HomePage {
         //         console.error(error);
         //     }
         // );
+    this.http.getPokemonDescription2(url)
+        .then(res => {
+          this.pokemon = JSON.parse(res.data);
+          this.router.navigate(['/description'], {state: {info: this.pokemon}});
+          console.log(this.pokemon);
+        });
   }
 }
