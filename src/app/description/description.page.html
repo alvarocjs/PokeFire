@@ -6,7 +6,11 @@
 
 <ion-content>
   <ion-list id="container" lang="long">
-    <ion-img [src]="pokemonDes.sprites.front_default"></ion-img>
+<!--    <ion-img [src]="pokemonDes.sprites.front_default"></ion-img>-->
+
+    <ion-button (click)="getPicture()">SELECCIONAR</ion-button>
+    <ion-img>{{image}}</ion-img>
+
     <ion-item>
       <ion-label>Nº Pokedex: {{pokemonDes.id}}</ion-label>
     </ion-item>
