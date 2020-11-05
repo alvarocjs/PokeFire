@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {HTTP} from '@ionic-native/http/ngx';
 
+import {Camera} from '@ionic-native/camera/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +24,7 @@ import {HTTP} from '@ionic-native/http/ngx';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PokeApiService, HTTP
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PokeApiService, HTTP, Camera
   ],
   bootstrap: [AppComponent]
 })

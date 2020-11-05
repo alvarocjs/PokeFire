@@ -8,8 +8,8 @@
   <ion-list id="container" lang="long">
 <!--    <ion-img [src]="pokemonDes.sprites.front_default"></ion-img>-->
 
-    <ion-button (click)="getPicture()">SELECCIONAR</ion-button>
-    <ion-img>{{image}}</ion-img>
+    <ion-button (click)="getPicture()" *ngIf="userImg == null">SELECCIONAR</ion-button>
+    <ion-img [src]="userImg"></ion-img>
 
     <ion-item>
       <ion-label>Nº Pokedex: {{pokemonDes.id}}</ion-label>
