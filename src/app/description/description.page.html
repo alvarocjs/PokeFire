@@ -1,13 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Description</ion-title>
+    <ion-title>{{pokemonDes.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list id="container" lang="long">
-<!--    <ion-img [src]="pokemonDes.sprites.front_default"></ion-img>-->
-
     <ion-button (click)="getPicture()" *ngIf="userImg == null">SELECCIONAR</ion-button>
     <ion-img [src]="userImg"></ion-img>
 
@@ -15,22 +13,22 @@
       <ion-label>Nº Pokedex: {{pokemonDes.id}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Altura: {{pokemonDes.height}}</ion-label>
+      <ion-label>{{'Altura'|translateAlvaro}}: {{pokemonDes.height}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Peso: {{pokemonDes.weight}}</ion-label>
+      <ion-label>{{'Peso'|translateAlvaro}}: {{pokemonDes.weight}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Vida: {{pokemonDes.stats[0].base_stat}}</ion-label>
+      <ion-label>{{'Vida'|translateAlvaro}}: {{pokemonDes.stats[0].base_stat}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Ataque: {{pokemonDes.stats[1].base_stat}}</ion-label>
+      <ion-label>{{'Ataque'|translateAlvaro}}: {{pokemonDes.stats[1].base_stat}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Defensa: {{pokemonDes.stats[2].base_stat}}</ion-label>
+      <ion-label>{{'Defensa'|translateAlvaro}}: {{pokemonDes.stats[2].base_stat}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Velocidad: {{pokemonDes.stats[3].base_stat}}</ion-label>
+      <ion-label>{{'Velocidad'|translateAlvaro}}: {{pokemonDes.stats[3].base_stat}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

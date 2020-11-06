@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { DescriptionPageRoutingModule } from './description-routing.module';
 
 import { DescriptionPage } from './description.page';
+import {PipesModule} from '../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DescriptionPageRoutingModule
+    DescriptionPageRoutingModule, PipesModule
   ],
   declarations: [DescriptionPage]
 })

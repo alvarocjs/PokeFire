@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {Pokemon} from '../interfaces/pokemon';
 
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
+import {TranslateAlvaroPipe} from '../pipes/translate-alvaro.pipe';
 
 @Component({
   selector: 'app-description',
@@ -13,6 +14,7 @@ export class DescriptionPage implements OnInit {
 
   pokemonDes: Pokemon;
   public userImg: any;
+  public pipe = new TranslateAlvaroPipe();
 
   galleryOptions: CameraOptions = {
     sourceType: this.cam.PictureSourceType.PHOTOLIBRARY,
@@ -26,6 +28,7 @@ export class DescriptionPage implements OnInit {
 
   constructor(private route: Router, private cam: Camera) {
     this.pokemonDes = (this.route.getCurrentNavigation().extras.state as {info: Pokemon}).info;
+    this.pokemonDes.name = this.pipe.transform(this.pokemonDes.name);
   }
 
   ngOnInit() {}
@@ -33,7 +36,6 @@ export class DescriptionPage implements OnInit {
     this.cam.getPicture(this.galleryOptions)
         .then((base64Img) => {
           this.userImg = 'data:image/jpeg;base64,' + base64Img;
-          console.log('esta mierda --> ' + this.userImg);
         }, (error) => {
           console.log(error);
         });
