@@ -3,6 +3,7 @@ import {PokeApiService} from '../services/poke-api.service';
 import {PokeList} from '../interfaces/poke-list';
 import {Pokemon} from '../interfaces/pokemon';
 import {Router} from '@angular/router';
+import { FirebaseX } from '@ionic-native/firebase-x/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -13,8 +14,10 @@ export class HomePage {
   pokemonList: PokeList;
   pokemon: Pokemon;
 
-  constructor(private http: PokeApiService, private router: Router) {
+  constructor(private http: PokeApiService, private router: Router, private firebaseX: FirebaseX) {
     this.getListFromService();
+    this.firebaseX.getToken().then(token => console.log('TOKEN -->' + token));
+    this.firebaseX.onMessageReceived().subscribe(data => console.log('DATA--> ' + data));
   }
 
   getListFromService(){
